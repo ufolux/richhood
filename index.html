@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robinhood Screenshot Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls-panel">
+            <h1>Robinhood Screenshot Generator</h1>
+
+            <div class="control-group">
+                <label for="investmentAmount">Investment Amount ($) *</label>
+                <input type="number" id="investmentAmount" class="required" value="10984.40" step="0.01" min="0" required>
+                <div class="helper-text">Required field</div>
+            </div>
+
+            <div class="control-group">
+                <label for="gainLoss">Gain/Loss Amount ($)</label>
+                <input type="number" id="gainLoss" value="1574.57" step="0.01">
+                <div class="helper-text">Fill either this or percentage</div>
+            </div>
+
+            <div class="control-group">
+                <label for="percentage">Percentage (%)</label>
+                <input type="number" id="percentage" value="16.74" step="0.01">
+                <div class="helper-text">Fill either this or gain/loss amount</div>
+            </div>
+
+            <div class="control-group">
+                <label for="timePeriod">Time Period</label>
+                <select id="timePeriod">
+                    <option value="Past Year">Past Year</option>
+                    <option value="All Time">All Time</option>
+                    <option value="Past Month">Past Month</option>
+                    <option value="Past Week">Past Week</option>
+                    <option value="Today">Today</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="buyingPower">Buying Power ($)</label>
+                <input type="number" id="buyingPower" value="87.64" step="0.01" min="0">
+            </div>
+
+            <div class="control-group">
+                <label for="badge">Badge Type</label>
+                <select id="badge">
+                    <option value="Free Stock">Free Stock</option>
+                    <option value="Rewards">Rewards</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="selectedPeriod">Selected Chart Period</label>
+                <select id="selectedPeriod">
+                    <option value="LIVE">LIVE</option>
+                    <option value="1D">1D</option>
+                    <option value="1W">1W</option>
+                    <option value="1M">1M</option>
+                    <option value="3M">3M</option>
+                    <option value="1Y" selected>1Y</option>
+                    <option value="ALL">ALL</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <button id="regenerateBtn" class="btn-chart">🔄 Regenerate Chart</button>
+                <div class="helper-text">Click and drag on the chart to adjust its shape</div>
+            </div>
+
+            <button id="updateBtn" class="btn-primary">Update Preview</button>
+            <button id="downloadBtn" class="btn-secondary">Download Screenshot</button>
+        </div>
+
+        <div class="preview-panel">
+            <div class="phone-mockup">
+                <div id="robinhoodScreen" class="robinhood-screen">
+                    <div class="header">
+                        <div class="title">Investing</div>
+                        <div id="badge" class="badge free-stock">🎁 Free Stock</div>
+                    </div>
+
+                    <div class="amount" id="amount">$10,984.40</div>
+
+                    <div class="performance" id="performance">
+                        <span class="arrow">▲</span>
+                        <span class="change-amount">$1,574.57</span>
+                        <span class="change-percent">(16.74%)</span>
+                        <span class="time-label">Past Year</span>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="chart" width="375" height="200"></canvas>
+                    </div>
+
+                    <div class="time-buttons">
+                        <button class="time-btn" data-period="LIVE">LIVE</button>
+                        <button class="time-btn" data-period="1D">1D</button>
+                        <button class="time-btn" data-period="1W">1W</button>
+                        <button class="time-btn" data-period="1M">1M</button>
+                        <button class="time-btn" data-period="3M">3M</button>
+                        <button class="time-btn active" data-period="1Y">1Y</button>
+                        <button class="time-btn" data-period="ALL">ALL</button>
+                    </div>
+
+                    <div class="footer">
+                        <div class="buying-power">
+                            <span>Buying power</span>
+                            <span id="buyingPowerAmount">$87.64</span>
+                        </div>
+                        <div class="arrow-right">›</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
