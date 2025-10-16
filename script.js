@@ -231,40 +231,40 @@ function generateChartData(percentage, period) {
   const startValue = 50; // Start at middle of chart
   const endValue = startValue + percentage * 0.5; // Scale the change for visual effect
 
-  // Generate smooth curve with realistic market volatility
+  // Generate sharper, more winding curve with dramatic movements
   for (let i = 0; i < numPoints; i++) {
     const progress = i / (numPoints - 1);
 
     // Base trend line
     const trendValue = startValue + (endValue - startValue) * progress;
 
-    // Add realistic volatility
-    const volatility = 3 + Math.abs(percentage) * 0.1; // More volatility for bigger changes
+    // Increase volatility significantly for sharper movements
+    const volatility = 8 + Math.abs(percentage) * 0.3; // Much higher base volatility
     const noise = (Math.random() - 0.5) * volatility;
 
-    // Add some smoothed random walks
+    // Add sharper random walks with less smoothing
     const prevValue =
       chartData.length > 0 ? chartData[chartData.length - 1] : startValue;
-    const randomWalk = (Math.random() - 0.5) * 2;
+    const randomWalk = (Math.random() - 0.5) * 5; // Larger random walks
 
-    let value = trendValue + noise + randomWalk * 0.3;
+    let value = trendValue + noise + randomWalk * 0.8;
 
-    // Smooth with previous value
+    // Less smoothing with previous value for sharper transitions
     if (chartData.length > 0) {
-      value = prevValue * 0.7 + value * 0.3;
+      value = prevValue * 0.4 + value * 0.6; // Less smoothing (was 0.7/0.3)
     }
 
-    // Add occasional larger moves (simulate market events)
-    if (Math.random() > 0.95) {
-      const spike = (Math.random() - 0.5) * volatility * 2;
+    // Add more frequent larger moves for winding effect
+    if (Math.random() > 0.85) {
+      const spike = (Math.random() - 0.5) * volatility * 3;
       value += spike;
     }
 
     chartData.push(value);
   }
 
-  // Smooth the data for a more natural look
-  chartData = smoothData(chartData, 3);
+  // Less smoothing passes for sharper curves
+  chartData = smoothData(chartData, 1); // Reduced from 3 to 1
 }
 
 function smoothData(data, passes) {
