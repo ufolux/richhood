@@ -5,31 +5,42 @@
 }
 
 @font-face {
-    font-family: 'Capsule Sans Display';
-    src: url('https://cdn.robinhood.com/assets/generated_assets/webapp/60bcae8ff7789bcc9bb6.woff2') format('woff2');
+    font-family: "Capsule Sans Display";
+    src: url("https://cdn.robinhood.com/assets/generated_assets/webapp/60bcae8ff7789bcc9bb6.woff2")
+        format("woff2");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Capsule Sans Display';
-    src: url('https://cdn.robinhood.com/assets/generated_assets/webapp/e7e5ffb53619c57eb9f0.woff2') format('woff2');
+    font-family: "Capsule Sans Display";
+    src: url("https://cdn.robinhood.com/assets/generated_assets/webapp/e7e5ffb53619c57eb9f0.woff2")
+        format("woff2");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Capsule Sans Display';
-    src: url('https://cdn.robinhood.com/assets/generated_assets/webapp/d42445759c3647b49112.woff2') format('woff2');
+    font-family: "Capsule Sans Display";
+    src: url("https://cdn.robinhood.com/assets/generated_assets/webapp/d42445759c3647b49112.woff2")
+        format("woff2");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 body {
-    font-family: "Capsule Sans Display", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family:
+        "Capsule Sans Display",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: #fff;
     min-height: 100vh;
@@ -173,13 +184,74 @@ body {
 }
 
 .robinhood-screen {
-    width: 375px;
+    width: 440px;
     height: 667px;
     background: #000;
     border-radius: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.robinhood-screen.light-mode {
+    background: #fff;
+}
+
+.robinhood-screen.light-mode .title,
+.robinhood-screen.light-mode .amount {
+    color: #000;
+}
+
+.robinhood-screen.light-mode .time-label {
+    color: #8e8e93;
+}
+
+.robinhood-screen.light-mode .time-buttons-separator {
+    border-top: 1px dotted rgba(142, 142, 147, 0.3);
+}
+
+.robinhood-screen.light-mode .time-btn {
+    color: #00c805;
+    background: transparent;
+}
+
+.robinhood-screen.light-mode .time-btn:hover {
+    background: rgba(0, 200, 5, 0.08);
+}
+
+.robinhood-screen.light-mode .time-btn.active {
+    background: #00c805;
+    color: #fff;
+}
+
+.robinhood-screen.light-mode .time-btn.active.positive {
+    background: #00c805;
+    color: #fff;
+}
+
+.robinhood-screen.light-mode .time-btn.active.negative {
+    background: #ff6400;
+    color: #fff;
+}
+
+.robinhood-screen.light-mode .live-dot {
+    background: #00c805;
+}
+
+.robinhood-screen.light-mode .footer {
+    border-top: none;
+}
+
+.robinhood-screen.light-mode .buying-power span:first-child {
+    color: #8e8e93;
+}
+
+.robinhood-screen.light-mode .buying-power span:last-child {
+    color: #000;
+}
+
+.robinhood-screen.light-mode .arrow-right {
+    color: #c7c7cc;
 }
 
 /* Robinhood UI Elements */
@@ -192,20 +264,34 @@ body {
 
 .title {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 200;
     color: #fff;
     letter-spacing: -0.33px;
     line-height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown-arrow {
+    font-size: 18px;
+    color: #8e8e93;
+    font-weight: 400;
 }
 
 .badge {
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
     font-weight: 600;
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+.badge.gold {
+    background: #f2d98d;
+    color: #000;
 }
 
 .badge.free-stock {
@@ -259,7 +345,8 @@ body {
 }
 
 .time-label {
-    color: #8e8e93;
+    color: #fff;
+    font-weight: 200;
     margin-left: 4px;
 }
 
@@ -279,33 +366,63 @@ body {
     cursor: grabbing;
 }
 
+.time-buttons-separator {
+    border-top: 1px dotted rgba(142, 142, 147, 0.4);
+    margin-bottom: 15px;
+}
+
 .time-buttons {
     display: flex;
     gap: 8px;
     margin-bottom: 20px;
-    justify-content: space-between;
+    align-items: center;
 }
 
 .time-btn {
-    padding: 8px 12px;
+    padding: 9px 14px;
     background: transparent;
     border: none;
-    color: #b3b3b3;
-    font-size: 13px;
+    color: #00c805;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: all 0.2s;
-    flex: 1;
+    min-width: 50px;
+}
+
+.time-btn-live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #366d33;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .time-btn:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 200, 5, 0.1);
+}
+
+.time-btn.active {
+    background: #00c805;
+    color: #fff;
 }
 
 .time-btn.active.positive {
     background: #00c805;
-    color: #000;
+    color: #1a1a1a;
+}
+
+.time-btn.active.positive .live-dot {
+    background: #1a1a1a;
+    color: #fff;
 }
 
 .time-btn.active.negative {
@@ -313,28 +430,54 @@ body {
     color: #fff;
 }
 
+.time-btn-settings {
+    padding: 9px 12px;
+    background: transparent;
+    border: none;
+    color: #8e8e93;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    margin-left: auto;
+    padding-top: 7px;
+}
+
+.time-btn-settings:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.time-btn-settings.positive {
+    color: #00c805;
+}
+
+.time-btn-settings.negative {
+    color: #ff6400;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 15px;
-    border-top: 1px solid #1a1a1a;
+    border-top: none;
 }
 
 .buying-power {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
 }
 
 .buying-power span:first-child {
-    color: #b3b3b3;
-    font-size: 14px;
+    color: #8e8e93;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 .buying-power span:last-child {
     color: #fff;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
 }
 
