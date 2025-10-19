@@ -1,120 +1,126 @@
-# Robinhood Screenshot Generator
+# Richhood - Robinhood Screenshot Generator
 
-A web-based tool to generate realistic Robinhood portfolio screenshots with customizable values. Perfect for creating mock portfolios for educational purposes, presentations, or design mockups.
+A professional screenshot generator that creates pixel-perfect replicas of Robinhood's investing dashboard UI with fully customizable portfolio values.
 
 ## Features
 
-- 📊 **Realistic Charts**: Automatically generated stock-market-like charts with natural volatility
-- 🎨 **Authentic Design**: Pixel-perfect recreation of Robinhood's UI
-- ⚡ **Real-time Preview**: See changes instantly as you adjust values
-- 📸 **High-Quality Screenshots**: Download 2x resolution PNG images
-- 🎯 **Fully Customizable**: Control all aspects of the portfolio display
+### Customizable Fields
+
+- **Investment Amount**: Set your total portfolio value
+- **Gain/Loss Amount**: Set the daily gain or loss (automatically calculates percentage)
+- **Percentage**: Set the daily percentage (automatically calculates gain/loss amount)
+- **Time Period**: Choose from LIVE, 1D, 1W, 1M, 3M, YTD, 1Y, or All
+- **Buying Power**: Set your available cash
+- **Badge Type**: Display Gold, Platinum, or no badge
+- **Color Mode**: Toggle between Light and Dark themes
+- **Selected Chart Period**: Control which time period button appears active
+
+### Interactive Chart Editor
+
+- **Click-and-Drag Editing**: Click or drag on the chart to reshape it
+- **Touch Support**: Full touch support for mobile devices
+- **Regenerate Chart**: Generate random realistic chart patterns with one click
+- **Automatic Colors**: Chart color changes based on gain/loss (green for positive, red for negative)
+
+### Export Functionality
+
+- **High-Quality Export**: Export screenshots as JPG at 2x resolution
+- **Phone Mockup**: Generates a realistic iPhone-sized mockup (375x812px)
+- **One-Click Download**: Instantly download your customized screenshot
+
+## Tech Stack
+
+- **Framework**: Svelte 5.39.6 with TypeScript
+- **Build Tool**: Vite 7.1.7
+- **Styling**: Tailwind CSS 4.1.14
+- **Icons**: @iconify/svelte 5.0.2
+- **Screenshot**: html2canvas for image export
+- **Fonts**: Custom Robinhood fonts for authentic UI
+
+## Getting Started
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5174](http://localhost:5174) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Type Checking
+
+```bash
+npm run check
+```
 
 ## Usage
 
-### Getting Started
+1. **Adjust Values**: Use the left control panel to customize all portfolio values
+2. **Edit Chart**: Click and drag on the chart in the preview to reshape it, or use "Regenerate Chart" for random patterns
+3. **Change Appearance**: Toggle between light/dark mode and adjust the selected time period
+4. **Export**: Click "Export Screenshot" to download your customized image as JPG
 
-1. Open `index.html` in your web browser
-2. Adjust the values in the control panel:
-   - **Investment Amount**: Total portfolio value
-   - **Gain/Loss Amount**: Profit or loss in dollars (use negative for losses)
-   - **Percentage**: Gain/loss percentage
-   - **Time Period**: Display label (Past Year, All Time, etc.)
-   - **Buying Power**: Available cash
-   - **Badge Type**: Free Stock, Rewards, or None
-   - **Selected Chart Period**: Time range for the chart (1D, 1W, 1M, etc.)
+## Project Structure
 
-3. Click "Download Screenshot" to save your generated image
+```
+src/
+├── lib/
+│   ├── store.svelte.ts           # Global state management
+│   ├── ControlPanel.svelte        # Left sidebar with all controls
+│   ├── PreviewScreen.svelte       # Right panel with phone mockup
+│   ├── InvestingDashboard.svelte # Main Robinhood UI container
+│   ├── PortfolioHeader.svelte    # Portfolio value and gain/loss display
+│   ├── StockChart.svelte          # Interactive chart with drag editing
+│   ├── BuyingPowerCard.svelte    # Buying power display
+│   ├── PromotionBanner.svelte    # Marketing banner (fixed)
+│   └── BottomNavigation.svelte   # Bottom tab navigation (fixed)
+├── App.svelte                     # Main app layout (two-column)
+└── app.css                        # Global styles and fonts
+```
 
-### Examples
+## Key Implementation Details
 
-**Positive Portfolio:**
-- Investment Amount: $10,984.40
-- Gain/Loss: $1,574.57
-- Percentage: 16.74%
-- Result: Green chart with upward trend
+### State Management
 
-**Negative Portfolio:**
-- Investment Amount: $28,867.45
-- Gain/Loss: -$4,878.62
-- Percentage: -14.46%
-- Result: Red/orange chart with downward trend
+Uses Svelte 5's runes (`$state`, `$derived`) for reactive state management. All customizable values are stored in a global store.
 
-## Features
+### Chart Editing
 
-### Automatic Chart Generation
-The tool generates realistic stock market charts based on your inputs:
-- Upward trending charts for positive gains
-- Downward trending charts for losses
-- Natural market volatility and fluctuations
-- Smooth curves that mimic real trading patterns
+- Converts mouse/touch coordinates to chart data points
+- Supports both click-to-edit and drag-to-draw
+- Clamps values between 5-95 to maintain visual consistency
+- Automatically updates when regenerated
 
-### Color Themes
-- **Green Theme**: Automatically applied for positive gains
-- **Red/Orange Theme**: Automatically applied for losses
-- Theme affects chart line, fill gradient, and active button colors
+### Dark Mode
 
-### Time Period Selection
-Choose from multiple time periods:
-- LIVE: Real-time view
-- 1D: One day
-- 1W: One week
-- 1M: One month
-- 3M: Three months
-- 1Y: One year
-- ALL: All time
+Components use Tailwind's dark mode classes (e.g., `dark:bg-black`) and conditionally apply based on the `colorMode` setting in the store.
 
-Each period generates a different number of data points for realistic chart density.
+### Screenshot Export
 
-## Technical Details
-
-### Technologies Used
-- HTML5 Canvas for chart rendering
-- Vanilla JavaScript (no framework dependencies)
-- html2canvas for screenshot generation
-- CSS3 for authentic Robinhood styling
-
-### Chart Algorithm
-The chart generation uses:
-1. **Trend Line**: Base line from start to end based on percentage change
-2. **Volatility**: Random fluctuations scaled to the percentage change
-3. **Random Walk**: Small continuous variations for realism
-4. **Smoothing**: Multiple passes to create natural curves
-5. **Market Events**: Occasional larger spikes for authenticity
-
-### Screenshot Quality
-- 2x scaling for high-resolution output (750x1334px)
-- Exact dimensions match iPhone display
-- PNG format for lossless quality
-
-## Customization
-
-### Modifying the Design
-Edit `styles.css` to customize:
-- Colors and themes
-- Font sizes
-- Layout spacing
-- Button styles
-
-### Adjusting Chart Behavior
-Edit `script.js` to modify:
-- Volatility levels (`volatility` variable)
-- Smoothing intensity (`smoothData` function)
-- Number of data points (`pointsMap`)
-- Chart colors
-
-## Browser Compatibility
-
-Works in all modern browsers:
-- Chrome/Edge (recommended)
-- Firefox
-- Safari
-- Opera
-
-## Disclaimer
-
-This tool is for educational and design purposes only. Generated screenshots are mock-ups and do not represent real investment accounts or financial advice.
+Uses html2canvas to capture the phone mockup element at 2x scale for high quality, then converts to JPG format for download.
 
 ## License
 
-MIT License - feel free to use and modify as needed.
+MIT
+
+## Credits
+
+Built with Svelte 5, inspired by Robinhood's design system.
