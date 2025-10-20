@@ -81,8 +81,12 @@ export const generateChartData = (percentage: number, period: ChartPeriod) => {
   const numPoints = chartPointsMap[period] ?? 100;
   const chartData: number[] = [];
 
-  const startValue = 50;
-  const endValue = startValue + percentage * 0.5;
+  // Adjust start and end values based on percentage direction
+  // For positive: start low, end high (bottom-left to top-right)
+  // For negative: start high, end low (top-left to bottom-right)
+  const isPositive = percentage >= 0;
+  const startValue = isPositive ? 30 : 70;
+  const endValue = isPositive ? 70 : 30;
 
   for (let i = 0; i < numPoints; i++) {
     const progress = i / (numPoints - 1);
@@ -210,6 +214,14 @@ function createAppState() {
           );
         }
 
+        // Determine if we need to regenerate the chart
+        const shouldRegenerateChart =
+          (params.selectedPeriod &&
+            params.selectedPeriod !== state.selectedPeriod) ||
+          percentage >= 0 !== state.percentage >= 0 || // Direction changed
+          params.gainLoss !== undefined ||
+          params.percentage !== undefined;
+
         const newState: AppState = {
           ...state,
           investmentAmount: investment,
@@ -219,11 +231,12 @@ function createAppState() {
           badge: params.badge ?? state.badge,
           colorMode: params.colorMode ?? state.colorMode,
           selectedPeriod: params.selectedPeriod ?? state.selectedPeriod,
-          chartData:
-            params.selectedPeriod &&
-            params.selectedPeriod !== state.selectedPeriod
-              ? generateChartData(percentage, params.selectedPeriod)
-              : state.chartData,
+          chartData: shouldRegenerateChart
+            ? generateChartData(
+                percentage,
+                params.selectedPeriod ?? state.selectedPeriod,
+              )
+            : state.chartData,
         };
 
         return newState;
