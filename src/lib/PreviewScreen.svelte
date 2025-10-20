@@ -93,7 +93,7 @@
       <div class="header">
         <div class="title">
           Investing
-          <span class="dropdown-arrow">∨</span>
+          <Icon icon="lsicon:down-outline" width="32" height="32" />
         </div>
 
         {#if viewState.badge !== "none"}
@@ -161,16 +161,6 @@
         >
           <Icon icon="mdi:cog" width="20" height="20" />
         </button>
-      </div>
-
-      <div class="footer">
-        <div class="buying-power">
-          <span>Buying power</span>
-          <span>{formatCurrency(viewState.buyingPower)}</span>
-        </div>
-        <div class="arrow-right">
-          <Icon icon="mdi:chevron-right" width="28" height="28" />
-        </div>
       </div>
     </div>
   </div>

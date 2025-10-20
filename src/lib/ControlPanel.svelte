@@ -13,11 +13,7 @@
   import { onDestroy } from "svelte";
 
   type LastEditedField = "gainLoss" | "percentage" | null;
-  type EditableField =
-    | "investmentAmount"
-    | "gainLoss"
-    | "percentage"
-    | "buyingPower";
+  type EditableField = "investmentAmount" | "gainLoss" | "percentage";
 
   const timePeriodOptions = [
     "Past Year",
@@ -38,7 +34,6 @@
     gainLoss: "0.00",
     percentage: "0.00",
     timePeriod: timePeriodOptions[0],
-    buyingPower: "0.00",
     badge: "Gold" as BadgeType,
     colorMode: "dark" as ColorMode,
     selectedPeriod: "1D" as ChartPeriod,
@@ -66,10 +61,6 @@
           ? form.percentage
           : formatField(state.percentage),
       timePeriod: state.timePeriod,
-      buyingPower:
-        focusedField === "buyingPower"
-          ? form.buyingPower
-          : formatField(state.buyingPower),
       badge: state.badge,
       colorMode: state.colorMode,
       selectedPeriod: state.selectedPeriod,
@@ -84,10 +75,12 @@
     Number.isFinite(value) ? value.toFixed(2) : "0.00";
 
   function validateInputs() {
-    const parsedInvestment = Number.parseFloat(form.investmentAmount);
+    // form.investmentAmount can be a number or string depending on input state
+    const investmentStr = String(form.investmentAmount);
+    const parsedInvestment = Number.parseFloat(investmentStr);
 
     investmentError =
-      form.investmentAmount.trim() === "" ||
+      investmentStr.trim() === "" ||
       Number.isNaN(parsedInvestment) ||
       parsedInvestment <= 0;
 
@@ -114,8 +107,6 @@
     const hasGainLoss = Number.isFinite(gainLossValue);
     const hasPercentage = Number.isFinite(percentageValue);
 
-    const buyingPowerValue = Number.parseFloat(form.buyingPower) || 0;
-
     // Determine which field takes priority for calculation
     let editPriority: "gainLoss" | "percentage" | undefined = undefined;
     if (hasGainLoss && (!hasPercentage || lastEdited === "gainLoss")) {
@@ -132,7 +123,6 @@
       gainLoss: hasGainLoss ? gainLossValue : undefined,
       percentage: hasPercentage ? percentageValue : undefined,
       timePeriod: form.timePeriod,
-      buyingPower: buyingPowerValue,
       badge: form.badge,
       colorMode: form.colorMode,
       selectedPeriod: form.selectedPeriod,
@@ -186,8 +176,6 @@
       form = { ...form, gainLoss: formatField(latestState.gainLoss) };
     } else if (field === "percentage") {
       form = { ...form, percentage: formatField(latestState.percentage) };
-    } else if (field === "buyingPower") {
-      form = { ...form, buyingPower: formatField(latestState.buyingPower) };
     }
   }
 </script>
@@ -257,20 +245,6 @@
         <option value={option}>{option}</option>
       {/each}
     </select>
-  </div>
-
-  <div class="control-group">
-    <label for="buyingPower">Buying Power ($)</label>
-    <input
-      id="buyingPower"
-      type="number"
-      min="0"
-      step="0.01"
-      bind:value={form.buyingPower}
-      on:input={handleNonAutoInput}
-      on:focus={() => handleFocus("buyingPower")}
-      on:blur={() => handleBlur("buyingPower")}
-    />
   </div>
 
   <div class="control-group">

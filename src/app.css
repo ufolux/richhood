@@ -248,19 +248,17 @@ select {
 .phone-mockup {
   background: #000;
   border-radius: 40px;
-  padding: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 .robinhood-screen {
   width: 440px;
-  height: 667px;
+  height: 500px;
   background: #000;
   border-radius: 20px;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
 }
 
 .robinhood-screen.light-mode {
@@ -323,16 +321,16 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  /*margin-bottom: 10px;*/
 }
 
 .title {
   font-size: 32px;
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: -0.33px;
   line-height: 40px;
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 6px;
 }
 
@@ -510,11 +508,14 @@ select {
 }
 
 .time-btn-live .live-dot {
-  width: 8px;
-  height: 8px;
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px;
+  min-height: 8px;
   background: #366d33;
   border-radius: 50%;
   display: inline-block;
+  flex-shrink: 0;
 }
 
 .time-btn:hover {

@@ -9,7 +9,6 @@ export interface AppState {
   gainLoss: number;
   percentage: number;
   timePeriod: string;
-  buyingPower: number;
   badge: BadgeType;
   colorMode: ColorMode;
   selectedPeriod: ChartPeriod;
@@ -21,7 +20,6 @@ const defaultState: AppState = {
   gainLoss: 1574.57,
   percentage: 16.74,
   timePeriod: "Past Year",
-  buyingPower: 87.64,
   badge: "Gold",
   colorMode: "dark",
   selectedPeriod: "1D",
@@ -38,12 +36,12 @@ const timeLabelMap: Record<ChartPeriod, string> = {
 };
 
 export const chartPointsMap: Record<ChartPeriod, number> = {
-  LIVE: 60,
-  "1D": 78,
-  "1W": 70,
-  "1M": 60,
-  "3M": 90,
-  YTD: 120,
+  LIVE: 120,
+  "1D": 150,
+  "1W": 140,
+  "1M": 120,
+  "3M": 180,
+  YTD: 240,
 };
 
 const sanitizeCurrency = (value: number, allowNegative = false) => {
@@ -98,8 +96,9 @@ export const generateChartData = (percentage: number, period: ChartPeriod) => {
 
     let value = trendValue + noise + randomWalk * 0.8;
 
+    // Reduced smoothing for sharper curves (was 0.4/0.6, now 0.2/0.8)
     if (chartData.length > 0) {
-      value = prevValue * 0.4 + value * 0.6;
+      value = prevValue * 0.2 + value * 0.8;
     }
 
     if (Math.random() > 0.85) {
@@ -110,7 +109,8 @@ export const generateChartData = (percentage: number, period: ChartPeriod) => {
     chartData.push(value);
   }
 
-  return smoothData(chartData, 1);
+  // No smoothing passes for sharper curves (was 1, now 0)
+  return smoothData(chartData, 0);
 };
 
 const createDefaultState = () => ({
@@ -164,7 +164,6 @@ function createAppState() {
       gainLoss?: number;
       percentage?: number;
       timePeriod?: string;
-      buyingPower?: number;
       badge?: BadgeType;
       colorMode?: ColorMode;
       selectedPeriod?: ChartPeriod;
@@ -217,10 +216,6 @@ function createAppState() {
           gainLoss,
           percentage,
           timePeriod: params.timePeriod ?? state.timePeriod,
-          buyingPower:
-            params.buyingPower !== undefined
-              ? Math.max(0, sanitizeCurrency(params.buyingPower))
-              : state.buyingPower,
           badge: params.badge ?? state.badge,
           colorMode: params.colorMode ?? state.colorMode,
           selectedPeriod: params.selectedPeriod ?? state.selectedPeriod,
@@ -237,11 +232,6 @@ function createAppState() {
       update((state) => ({
         ...state,
         timePeriod: value,
-      })),
-    setBuyingPower: (value: number) =>
-      update((state) => ({
-        ...state,
-        buyingPower: Math.max(0, sanitizeCurrency(value)),
       })),
     setBadge: (value: BadgeType) =>
       update((state) => ({

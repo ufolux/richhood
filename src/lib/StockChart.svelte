@@ -289,4 +289,11 @@
   });
 </script>
 
-<canvas bind:this={canvas} width="440" height="200"></canvas>
+<canvas bind:this={canvas} width="500" height="200"></canvas>
+
+<style>
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+</style>
