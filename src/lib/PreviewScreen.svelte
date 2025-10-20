@@ -145,7 +145,7 @@
       <div class="time-buttons">
         {#each periodButtons as period}
           <button
-            class={`time-btn ${period === "LIVE" ? "time-btn-live" : ""} ${viewState.selectedPeriod === period ? "active" : ""} ${viewState.selectedPeriod === period ? (viewState.gainLoss >= 0 ? "positive" : "negative") : ""}`}
+            class={`time-btn ${period === "LIVE" ? "time-btn-live" : ""} ${viewState.selectedPeriod === period ? "active" : ""} ${viewState.gainLoss >= 0 ? "positive" : "negative"}`}
             on:click={() => handlePeriodClick(period)}
             type="button"
           >

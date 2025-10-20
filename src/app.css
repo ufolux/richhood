@@ -171,7 +171,7 @@ select {
 }
 
 .control-group input.error {
-  border-color: #ff6400;
+  border-color: #ff5000;
 }
 
 .control-group .helper-text {
@@ -181,7 +181,7 @@ select {
 
 .control-group .error-text {
   font-size: 12px;
-  color: #ff6400;
+  color: #ff5000;
 }
 
 .btn-primary,
@@ -293,7 +293,7 @@ select {
 }
 
 .robinhood-screen.light-mode .time-btn.active.negative {
-  background: #ff6400;
+  background: #ff5000;
   color: #fff;
 }
 
@@ -362,8 +362,8 @@ select {
 }
 
 .badge.rewards {
-  background: rgba(255, 100, 0, 0.15);
-  color: #ff6400;
+  background: rgba(255, 80, 0, 0.15);
+  color: #ff5000;
 }
 
 .amount {
@@ -397,7 +397,7 @@ select {
 }
 
 .performance.negative {
-  color: #ff6400;
+  color: #ff5000;
 }
 
 .performance .arrow {
@@ -432,7 +432,7 @@ select {
 
 .performance.negative .change-amount,
 .performance.negative .change-percent {
-  color: #ff6400;
+  color: #ff5000;
 }
 
 .performance .change-amount {
@@ -507,6 +507,14 @@ select {
   gap: 6px;
 }
 
+.time-btn.negative {
+  color: #ff5000;
+}
+
+.time-btn.positive {
+  color: #00c805;
+}
+
 .time-btn-live .live-dot {
   width: 8px !important;
   height: 8px !important;
@@ -518,8 +526,20 @@ select {
   flex-shrink: 0;
 }
 
-.time-btn:hover {
+.time-btn-live.positive .live-dot {
+  background: #366d33;
+}
+
+.time-btn-live.negative .live-dot {
+  background: #ff5000;
+}
+
+.time-btn.positive:hover {
   background: rgba(0, 200, 5, 0.1);
+}
+
+.time-btn.negative:hover {
+  background: rgba(255, 80, 0, 0.1);
 }
 
 .time-btn.active {
@@ -532,7 +552,8 @@ select {
 }
 
 .time-btn.active.negative {
-  background: #ff6400;
+  background: #ff5000;
+  color: #fff;
 }
 
 .time-btn-settings {
@@ -556,7 +577,7 @@ select {
 }
 
 .time-btn-settings.negative {
-  color: #ff6400;
+  color: #ff5000;
 }
 
 .time-btn-settings:hover {

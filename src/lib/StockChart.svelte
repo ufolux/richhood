@@ -47,7 +47,7 @@
     const maxValue = Math.max(...chartData);
     const valueRange = maxValue - minValue || 1;
 
-    const lineColor = positive ? "#00c805" : "#ff6400";
+    const lineColor = positive ? "#00c805" : "#ff5000";
 
     ctx.beginPath();
     let startY =
