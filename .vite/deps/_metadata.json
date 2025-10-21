@@ -2,7 +2,14 @@
   "hash": "10cd38ed",
   "configHash": "72aafd41",
   "lockfileHash": "b3ae3ca0",
-  "browserHash": "295a0bf0",
-  "optimized": {},
+  "browserHash": "4b758198",
+  "optimized": {
+    "svelte": {
+      "src": "../../node_modules/svelte/src/index-client.js",
+      "file": "svelte.js",
+      "fileHash": "b661309d",
+      "needsInterop": false
+    }
+  },
   "chunks": {}
 }
