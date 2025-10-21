@@ -245,10 +245,11 @@ select {
     height: 100%;
 }
 
-.phone-mockup {
+.phone-mockup-wrapper {
     background: #000;
     border-radius: 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    max-width: 100%;
 }
 
 .robinhood-screen {
@@ -627,8 +628,192 @@ select {
     justify-content: center;
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
     .controls-panel {
         position: static;
+        padding: 20px;
+        border-radius: 0;
+    }
+
+    .controls-panel h1 {
+        font-size: 20px;
+    }
+
+    .preview-panel {
+        padding: 20px;
+    }
+
+    .phone-mockup-wrapper {
+        border-radius: 20px;
+        margin: 0 auto;
+    }
+
+    .robinhood-screen {
+        width: 100%;
+        max-width: 440px;
+        height: auto;
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls-panel {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .controls-panel h1 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .control-group {
+        gap: 6px;
+    }
+
+    .control-group label {
+        font-size: 13px;
+    }
+
+    .control-group input,
+    .control-group select {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-chart {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .preview-panel {
+        padding: 16px;
+    }
+
+    .phone-mockup-wrapper {
+        border-radius: 16px;
+    }
+
+    .robinhood-screen {
+        padding: 16px;
+        border-radius: 16px;
+        min-height: 480px;
+    }
+
+    .title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .amount {
+        font-size: 38px;
+    }
+
+    .performance {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .chart-container {
+        margin-bottom: 16px;
+    }
+
+    .time-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        min-width: 45px;
+    }
+
+    .time-btn-settings {
+        padding: 8px 10px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .controls-panel {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .controls-panel h1 {
+        font-size: 16px;
+    }
+
+    .control-group input,
+    .control-group select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-chart {
+        padding: 10px;
+        font-size: 14px;
+        gap: 6px;
+    }
+
+    .preview-panel {
+        padding: 12px;
+    }
+
+    .phone-mockup-wrapper {
+        border-radius: 12px;
+    }
+
+    .robinhood-screen {
+        padding: 14px;
+        border-radius: 12px;
+        min-height: 450px;
+    }
+
+    .title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .amount {
+        font-size: 32px;
+    }
+
+    .performance {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .chart-container {
+        margin-bottom: 14px;
+    }
+
+    .time-buttons {
+        gap: 6px;
+    }
+
+    .time-btn {
+        padding: 7px 10px;
+        font-size: 13px;
+        min-width: 40px;
+    }
+
+    .time-btn-settings {
+        padding: 7px 8px;
+        font-size: 16px;
+    }
+
+    .badge {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .buying-power span:first-child {
+        font-size: 12px;
+    }
+
+    .buying-power span:last-child {
+        font-size: 15px;
     }
 }
