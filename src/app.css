@@ -2,818 +2,826 @@
 
 /* Capsule Sans Display Font - Primary font for Robinhood UI */
 @font-face {
-    font-family: "Capsule Sans Display";
-    src: url("https://fonts.cdnfonts.com/s/93522/CapsuleSansDisplay-Light.woff")
-        format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Capsule Sans Display";
+  src: url("https://fonts.cdnfonts.com/s/93522/CapsuleSansDisplay-Light.woff")
+    format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Capsule Sans Display";
-    src: url("https://fonts.cdnfonts.com/s/93522/CapsuleSansDisplay-Medium.woff")
-        format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Capsule Sans Display";
+  src: url("https://fonts.cdnfonts.com/s/93522/CapsuleSansDisplay-Medium.woff")
+    format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Capsule Sans Display";
-    src: url("https://fonts.cdnfonts.com/s/93522/CapsuleSansDisplay-Bold.woff")
-        format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Capsule Sans Display";
+  src: url("https://fonts.cdnfonts.com/s/93522/CapsuleSansDisplay-Bold.woff")
+    format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Robinhood Numbers";
-    src: url("https://cdn.robinhood.com/assets/generated_assets/webapp/d42445759c3647b49112.woff2")
-        format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Robinhood Numbers";
+  src: url("https://cdn.robinhood.com/assets/generated_assets/webapp/d42445759c3647b49112.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Global Reset & Base Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family:
-        "Capsule Sans Display",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        "Inter",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    min-height: 100vh;
-    color: #ffffff;
+  font-family:
+    "Capsule Sans Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 100vh;
+  color: #ffffff;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+  background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 4px;
+  background: #555;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #777;
+  background: #777;
 }
 
 /* Prevent text selection on draggable elements */
 .no-select {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Animation utilities */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .fade-in {
-    animation: fadeIn 0.3s ease-in;
+  animation: fadeIn 0.3s ease-in;
 }
 
 /* Focus styles */
 *:focus-visible {
-    outline: 2px solid #00c805;
-    outline-offset: 2px;
+  outline: 2px solid #00c805;
+  outline-offset: 2px;
 }
 
 /* Button reset */
 button {
-    font-family: inherit;
-    cursor: pointer;
-    border: none;
-    background: none;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 /* Input reset */
 input,
 select {
-    font-family: inherit;
+  font-family: inherit;
 }
 
 .controls-panel {
-    background: #2a2a2a;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    position: sticky;
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .controls-panel h1 {
-    font-size: 24px;
-    color: #00c805;
-    margin-bottom: 12px;
+  font-size: 24px;
+  color: #00c805;
+  margin-bottom: 12px;
 }
 
 .control-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .control-group label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 500;
+  color: #b3b3b3;
 }
 
 .control-group input,
 .control-group select {
-    width: 100%;
-    padding: 12px;
-    background: #1a1a1a;
-    border: 1px solid #404040;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 16px;
-    transition: border-color 0.2s;
+  width: 100%;
+  padding: 12px;
+  background: #1a1a1a;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  transition: border-color 0.2s;
 }
 
 .control-group input:focus,
 .control-group select:focus {
-    outline: none;
-    border-color: #00c805;
+  outline: none;
+  border-color: #00c805;
 }
 
 .control-group input.error {
-    border-color: #ff5000;
+  border-color: #ff5000;
 }
 
 .control-group .helper-text {
-    font-size: 12px;
-    color: #808080;
+  font-size: 12px;
+  color: #808080;
 }
 
 .control-group .error-text {
-    font-size: 12px;
-    color: #ff5000;
+  font-size: 12px;
+  color: #ff5000;
 }
 
 .btn-primary,
 .btn-secondary,
 .btn-chart {
-    width: 100%;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition:
-        transform 0.2s,
-        background 0.2s,
-        color 0.2s;
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    color 0.2s;
 }
 
 .btn-primary {
-    background: #00c805;
-    color: #0b1405;
-    border: none;
+  background: #00c805;
+  color: #0b1405;
+  border: none;
 }
 
 .btn-primary:hover {
-    background: #1ce000;
-    transform: translateY(-1px);
+  background: #1ce000;
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #404040;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #404040;
 }
 
 .btn-secondary:hover {
-    border-color: #00c805;
-    color: #00c805;
-    transform: translateY(-1px);
+  border-color: #00c805;
+  color: #00c805;
+  transform: translateY(-1px);
 }
 
 .btn-chart {
-    background: rgba(0, 200, 5, 0.12);
-    color: #00c805;
-    border: 1px solid #00c805;
+  background: rgba(0, 200, 5, 0.12);
+  color: #00c805;
+  border: 1px solid #00c805;
 }
 
 .btn-chart:hover {
-    background: #00c805;
-    color: #000;
-    transform: translateY(-1px);
+  background: #00c805;
+  color: #000;
+  transform: translateY(-1px);
 }
 
 .preview-panel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .phone-mockup-wrapper {
-    background: #000;
-    border-radius: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    max-width: 100%;
+  background: #000;
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  max-width: 100%;
 }
 
 .robinhood-screen {
-    width: 440px;
-    height: 600px;
-    background: #000;
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+  width: 440px;
+  height: 500px;
+  background: #000;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .robinhood-screen.light-mode {
-    background: #fff;
-    color: #000;
+  background: #fff;
+  color: #000;
 }
 
 .robinhood-screen.light-mode .title,
 .robinhood-screen.light-mode .amount {
-    color: #000;
+  color: #000;
 }
 
 .robinhood-screen.light-mode .time-label {
-    color: #8e8e93;
+  color: #000;
+  font-weight: 400;
 }
 
 .robinhood-screen.light-mode .time-buttons-separator {
-    border-top: 1px dotted rgba(142, 142, 147, 0.3);
+  border-top: 1px dotted rgba(142, 142, 147, 0.3);
 }
 
 .robinhood-screen.light-mode .time-btn {
-    color: #00c805;
+  color: #00c805;
 }
 
 .robinhood-screen.light-mode .time-btn:hover {
-    background: rgba(0, 200, 5, 0.08);
+  background: rgba(0, 200, 5, 0.08);
 }
 
 .robinhood-screen.light-mode .time-btn.active.positive {
-    background: #00c805;
-    color: #fff;
+  background: #00c805;
+  color: #fff;
 }
 
 .robinhood-screen.light-mode .time-btn.active.negative {
-    background: #ff5000;
-    color: #fff;
+  background: #ff5000;
+  color: #fff;
 }
 
 .robinhood-screen.light-mode .live-dot {
-    background: #00c805;
+  background: #34c759;
 }
 
 .robinhood-screen.light-mode .footer {
-    border-top: none;
+  border-top: none;
 }
 
 .robinhood-screen.light-mode .buying-power span:first-child {
-    color: #8e8e93;
+  color: #8e8e93;
 }
 
 .robinhood-screen.light-mode .buying-power span:last-child {
-    color: #000;
+  color: #000;
 }
 
 .robinhood-screen.light-mode .arrow-right {
-    color: #c7c7cc;
+  color: #c7c7cc;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /*margin-bottom: 10px;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*margin-bottom: 10px;*/
 }
 
 .title {
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -0.33px;
-    line-height: 40px;
-    display: flex;
-    align-items: end;
-    gap: 6px;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.33px;
+  line-height: 40px;
+  display: flex;
+  align-items: end;
+  gap: 6px;
 }
 
 .dropdown-arrow {
-    font-size: 18px;
-    color: #8e8e93;
-    font-weight: 400;
+  font-size: 18px;
+  color: #8e8e93;
+  font-weight: 400;
 }
 
 .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .badge.gold {
-    background: #f2d98d;
-    color: #000;
+  background: #f2d98d;
+  color: #000;
 }
 
 .badge.free-stock,
 .badge.rewards {
-    background: rgba(0, 200, 5, 0.15);
-    color: #00c805;
+  background: rgba(0, 200, 5, 0.15);
+  color: #00c805;
 }
 
 .badge.rewards {
-    background: rgba(255, 80, 0, 0.15);
-    color: #ff5000;
+  background: rgba(255, 80, 0, 0.15);
+  color: #ff5000;
 }
 
 .amount {
-    font-size: 46px;
-    font-weight: 300;
-    letter-spacing: -1px;
-    color: #fff;
-    font-family:
-        "Robinhood Numbers",
-        "Capsule Sans Display",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        "Inter",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+  font-size: 46px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  color: #fff;
+  font-family:
+    "Robinhood Numbers",
+    "Capsule Sans Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 .performance {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 20px;
-    font-size: 15px;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .performance.positive {
-    color: #00c805;
+  color: #00c805;
 }
 
 .performance.negative {
-    color: #ff5000;
+  color: #ff5000;
 }
 
 .performance .arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: currentColor;
-    width: 12px;
-    height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  width: 12px;
+  height: 12px;
 }
 
 .performance .arrow::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    transition: border 0.2s ease;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  transition: border 0.2s ease;
 }
 
 .performance .arrow.arrow-up::before {
-    border-bottom: 9px solid currentColor;
+  border-bottom: 9px solid currentColor;
 }
 
 .performance .arrow.arrow-down::before {
-    border-top: 9px solid currentColor;
+  border-top: 9px solid currentColor;
 }
 
 .performance.negative .arrow {
-    color: currentColor;
+  color: currentColor;
 }
 
 .performance.negative .change-amount,
 .performance.negative .change-percent {
-    color: #ff5000;
+  color: #ff5000;
 }
 
 .performance .change-amount {
-    color: currentColor;
-    font-family:
-        "Robinhood Numbers",
-        "Capsule Sans Display",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        "Inter",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-    font-weight: 600;
+  color: currentColor;
+  font-family:
+    "Robinhood Numbers",
+    "Capsule Sans Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-weight: 600;
 }
 
 .performance .change-percent {
-    color: currentColor;
-    font-weight: 400;
-    font-family:
-        "Robinhood Numbers",
-        "Capsule Sans Display",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        "Inter",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+  color: currentColor;
+  font-weight: 400;
+  font-family:
+    "Robinhood Numbers",
+    "Capsule Sans Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 .performance .time-label {
-    color: #fff;
-    margin-left: 4px;
-    font-weight: 200;
+  color: #fff;
+  margin-left: 4px;
+  font-weight: 200;
 }
 
 .chart-container {
-    width: 100%;
-    background: transparent;
-    flex: 1;
-    margin-bottom: 20px;
-    position: relative;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  background: transparent;
+  margin-bottom: 0px;
+  position: relative;
 }
 
 .time-buttons-separator {
-    border-top: 1px dotted rgba(142, 142, 147, 0.2);
-    margin: 0 0 15px;
+  border-top: 1px dotted rgba(142, 142, 147, 0.2);
+  margin: 0 0 6px;
 }
 
 .time-buttons {
-    display: flex;
-    gap: 8px;
-    align-items: center;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .time-btn {
-    padding: 9px 14px;
-    background: transparent;
-    border: none;
-    color: #00c805;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s;
-    min-width: 50px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+  padding: 9px 14px;
+  background: transparent;
+  border: none;
+  color: #00c805;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  min-width: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .time-btn.negative {
-    color: #ff5000;
+  color: #ff5000;
 }
 
 .time-btn.positive {
-    color: #00c805;
+  color: #00c805;
 }
 
 .time-btn-live .live-dot {
-    width: 8px !important;
-    height: 8px !important;
-    min-width: 8px;
-    min-height: 8px;
-    background: #366d33;
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px;
+  min-height: 8px;
+  background: #366d33;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .time-btn-live.positive .live-dot {
-    background: #366d33;
+  background: #366d33;
 }
 
 .time-btn-live.negative .live-dot {
-    background: #ff5000;
+  background: #ff5000;
 }
 
 .time-btn.positive:hover {
-    background: rgba(0, 200, 5, 0.1);
+  background: rgba(0, 200, 5, 0.1);
 }
 
 .time-btn.negative:hover {
-    background: rgba(255, 80, 0, 0.1);
+  background: rgba(255, 80, 0, 0.1);
 }
 
 .time-btn.active {
-    color: #fff;
+  color: #fff;
 }
 
 .time-btn.active.positive {
-    background: #00c805;
-    color: #1a1a1a;
+  background: #00c805;
+  color: #1a1a1a;
 }
 
 .time-btn.active.negative {
-    background: #ff5000;
-    color: #fff;
+  background: #ff5000;
+  color: #fff;
 }
 
 .time-btn-settings {
-    padding: 9px 12px;
-    background: transparent;
-    border: none;
-    color: #8e8e93;
-    font-size: 20px;
-    padding-top: 7px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s;
-    margin-left: auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  padding: 9px 12px;
+  background: transparent;
+  border: none;
+  color: #8e8e93;
+  font-size: 20px;
+  padding-top: 7px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .time-btn-settings.positive {
-    color: #00c805;
+  color: #00c805;
 }
 
 .time-btn-settings.negative {
-    color: #ff5000;
+  color: #ff5000;
 }
 
 .time-btn-settings:hover {
-    background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
 }
 
 .buying-power {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .buying-power span:first-child {
-    color: #8e8e93;
-    font-size: 13px;
-    font-weight: 400;
+  color: #8e8e93;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .buying-power span:last-child {
-    color: #fff;
-    font-size: 17px;
-    font-weight: 500;
-    font-family:
-        "Robinhood Numbers",
-        "Capsule Sans Display",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        "Inter",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  font-family:
+    "Robinhood Numbers",
+    "Capsule Sans Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 .arrow-right {
-    font-size: 24px;
-    color: #404040;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 24px;
+  color: #404040;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .controls-panel {
-        position: static;
-        padding: 20px;
-        border-radius: 0;
-    }
+  .controls-panel {
+    position: static;
+    padding: 20px;
+    border-radius: 0;
+  }
 
-    .controls-panel h1 {
-        font-size: 20px;
-    }
+  .controls-panel h1 {
+    font-size: 20px;
+  }
 
-    .preview-panel {
-        padding: 20px;
-    }
+  .preview-panel {
+    padding: 20px;
+  }
 
-    .phone-mockup-wrapper {
-        border-radius: 20px;
-        margin: 0 auto;
-    }
+  .phone-mockup-wrapper {
+    border-radius: 20px;
+    margin: 0 auto;
+  }
 
-    .robinhood-screen {
-        width: 100%;
-        max-width: 440px;
-        height: auto;
-        min-height: 500px;
-    }
+  .robinhood-screen {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    min-height: 500px;
+  }
 }
 
 @media (max-width: 768px) {
-    .controls-panel {
-        padding: 16px;
-        gap: 14px;
-    }
+  .controls-panel {
+    padding: 16px;
+    gap: 14px;
+  }
 
-    .controls-panel h1 {
-        font-size: 18px;
-        margin-bottom: 8px;
-    }
+  .controls-panel h1 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
 
-    .control-group {
-        gap: 6px;
-    }
+  .control-group {
+    gap: 6px;
+  }
 
-    .control-group label {
-        font-size: 13px;
-    }
+  .control-group label {
+    font-size: 13px;
+  }
 
-    .control-group input,
-    .control-group select {
-        padding: 10px;
-        font-size: 15px;
-    }
+  .control-group input,
+  .control-group select {
+    padding: 10px;
+    font-size: 15px;
+  }
 
-    .btn-primary,
-    .btn-secondary,
-    .btn-chart {
-        padding: 12px;
-        font-size: 15px;
-    }
+  .btn-primary,
+  .btn-secondary,
+  .btn-chart {
+    padding: 12px;
+    font-size: 15px;
+  }
 
-    .preview-panel {
-        padding: 16px;
-    }
+  .preview-panel {
+    padding: 16px;
+  }
 
-    .phone-mockup-wrapper {
-        border-radius: 16px;
-    }
+  .phone-mockup-wrapper {
+    border-radius: 16px;
+  }
 
-    .robinhood-screen {
-        padding: 16px;
-        border-radius: 16px;
-        min-height: 480px;
-    }
+  .robinhood-screen {
+    padding: 16px;
+    border-radius: 16px;
+    min-height: 480px;
+  }
 
-    .title {
-        font-size: 28px;
-        line-height: 36px;
-    }
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
 
-    .amount {
-        font-size: 38px;
-    }
+  .amount {
+    font-size: 38px;
+  }
 
-    .performance {
-        font-size: 14px;
-        margin-bottom: 16px;
-    }
+  .performance {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
 
-    .chart-container {
-        margin-bottom: 16px;
-    }
+  .chart-container {
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: 0px;
+  }
 
-    .time-btn {
-        padding: 8px 12px;
-        font-size: 14px;
-        min-width: 45px;
-    }
+  .time-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: 45px;
+  }
 
-    .time-btn-settings {
-        padding: 8px 10px;
-        font-size: 18px;
-    }
+  .time-btn-settings {
+    padding: 8px 10px;
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 480px) {
-    .controls-panel {
-        padding: 12px;
-        gap: 12px;
-    }
+  .controls-panel {
+    padding: 12px;
+    gap: 12px;
+  }
 
-    .controls-panel h1 {
-        font-size: 16px;
-    }
+  .controls-panel h1 {
+    font-size: 16px;
+  }
 
-    .control-group input,
-    .control-group select {
-        padding: 8px;
-        font-size: 14px;
-    }
+  .control-group input,
+  .control-group select {
+    padding: 8px;
+    font-size: 14px;
+  }
 
-    .btn-primary,
-    .btn-secondary,
-    .btn-chart {
-        padding: 10px;
-        font-size: 14px;
-        gap: 6px;
-    }
+  .btn-primary,
+  .btn-secondary,
+  .btn-chart {
+    padding: 10px;
+    font-size: 14px;
+    gap: 6px;
+  }
 
-    .preview-panel {
-        padding: 12px;
-    }
+  .preview-panel {
+    padding: 12px;
+  }
 
-    .phone-mockup-wrapper {
-        border-radius: 12px;
-    }
+  .phone-mockup-wrapper {
+    border-radius: 12px;
+  }
 
-    .robinhood-screen {
-        padding: 14px;
-        border-radius: 12px;
-        min-height: 450px;
-    }
+  .robinhood-screen {
+    padding: 14px;
+    border-radius: 12px;
+    min-height: 450px;
+  }
 
-    .title {
-        font-size: 24px;
-        line-height: 32px;
-    }
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
 
-    .amount {
-        font-size: 32px;
-    }
+  .amount {
+    font-size: 32px;
+  }
 
-    .performance {
-        font-size: 13px;
-        margin-bottom: 14px;
-    }
+  .performance {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
 
-    .chart-container {
-        margin-bottom: 14px;
-    }
+  .chart-container {
+    width: calc(100% + 28px);
+    margin-left: -14px;
+    margin-right: -14px;
+    margin-bottom: 0px;
+  }
 
-    .time-buttons {
-        gap: 6px;
-    }
+  .time-buttons {
+    gap: 6px;
+  }
 
-    .time-btn {
-        padding: 7px 10px;
-        font-size: 13px;
-        min-width: 40px;
-    }
+  .time-btn {
+    padding: 7px 10px;
+    font-size: 13px;
+    min-width: 40px;
+  }
 
-    .time-btn-settings {
-        padding: 7px 8px;
-        font-size: 16px;
-    }
+  .time-btn-settings {
+    padding: 7px 8px;
+    font-size: 16px;
+  }
 
-    .badge {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
+  .badge {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 
-    .buying-power span:first-child {
-        font-size: 12px;
-    }
+  .buying-power span:first-child {
+    font-size: 12px;
+  }
 
-    .buying-power span:last-child {
-        font-size: 15px;
-    }
+  .buying-power span:last-child {
+    font-size: 15px;
+  }
 }

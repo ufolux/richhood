@@ -141,6 +141,7 @@ function createAppState() {
         const gainLoss = sanitizeCurrency(value, true);
         const percentage = sanitizeCurrency(
           calculatePercentage(state.investmentAmount, gainLoss),
+          true,
         );
 
         return {
@@ -186,6 +187,7 @@ function createAppState() {
           gainLoss = sanitizeCurrency(params.gainLoss, true);
           percentage = sanitizeCurrency(
             calculatePercentage(investment, gainLoss),
+            true,
           );
         } else if (
           params.percentage !== undefined &&
@@ -200,6 +202,7 @@ function createAppState() {
           gainLoss = sanitizeCurrency(params.gainLoss, true);
           percentage = sanitizeCurrency(
             calculatePercentage(investment, gainLoss),
+            true,
           );
         } else if (params.percentage !== undefined) {
           percentage = sanitizeCurrency(params.percentage, true);
@@ -211,6 +214,7 @@ function createAppState() {
           // Neither gainLoss nor percentage provided, recalculate based on new investment
           percentage = sanitizeCurrency(
             calculatePercentage(investment, gainLoss),
+            true,
           );
         }
 
