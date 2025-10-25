@@ -173,7 +173,7 @@
 </script>
 
 <div class="controls-panel">
-  <h1>Robinhood Screenshot Generator</h1>
+  <h1>Richhood - Make you rich immediately</h1>
 
   <div class="control-group">
     <label for="investmentAmount">Investment Amount ($) *</label>
