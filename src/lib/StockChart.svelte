@@ -287,10 +287,11 @@
     ctx = canvas.getContext("2d");
     canvas.style.cursor = "grab";
 
-    canvas.addEventListener("pointerdown", onPointerDown);
-    canvas.addEventListener("pointermove", onPointerMove);
-    canvas.addEventListener("pointerup", endDrag);
-    canvas.addEventListener("pointerleave", endDrag);
+    // Use passive: false to allow preventDefault() on mobile
+    canvas.addEventListener("pointerdown", onPointerDown, { passive: false });
+    canvas.addEventListener("pointermove", onPointerMove, { passive: false });
+    canvas.addEventListener("pointerup", endDrag, { passive: false });
+    canvas.addEventListener("pointerleave", endDrag, { passive: false });
   });
 
   onDestroy(() => {
@@ -307,5 +308,6 @@
   canvas {
     width: 100%;
     height: auto;
+    touch-action: none;
   }
 </style>
