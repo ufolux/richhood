@@ -33,63 +33,11 @@
   const handlePeriodClick = (period: ChartPeriod) => {
     appState.setSelectedPeriod(period);
   };
-
-  const captureScreenshot = async () => {
-    if (!screenRef || isDownloading) return;
-    isDownloading = true;
-
-    try {
-      // Wait for fonts to load
-      await document.fonts.ready;
-
-      // Small delay to ensure rendering is complete
-      await new Promise((resolve) => setTimeout(resolve, 100));
-
-      const canvas = await html2canvas(screenRef, {
-        backgroundColor:
-          viewState.colorMode === "light" ? "#ffffff" : "#000000",
-        scale: 2,
-        logging: false,
-        useCORS: true,
-        allowTaint: true,
-        foreignObjectRendering: false,
-        imageTimeout: 0,
-        onclone: (clonedDoc) => {
-          // Force reflow in cloned document to fix positioning
-          const clonedElement = clonedDoc.querySelector(".robinhood-screen");
-          if (clonedElement) {
-            (clonedElement as HTMLElement).style.transform = "none";
-          }
-        },
-      });
-
-      const blob: Blob | null = await new Promise((resolve) =>
-        canvas.toBlob(resolve, "image/png", 1.0),
-      );
-
-      if (!blob) {
-        throw new Error("Unable to generate screenshot");
-      }
-
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.download = `robinhood-${Date.now()}.png`;
-      link.href = url;
-      link.click();
-      URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Screenshot failed", error);
-      alert("Screenshot failed. Please try again.");
-    } finally {
-      isDownloading = false;
-    }
-  };
 </script>
 
 <div class="preview-panel">
   <div class="phone-mockup-wrapper">
     <div
-      bind:this={screenRef}
       class={`robinhood-screen ${viewState.colorMode === "light" ? "light-mode" : ""}`}
     >
       <div class="header">

@@ -233,6 +233,7 @@
 
   const onPointerDown = (event: PointerEvent) => {
     event.preventDefault();
+    event.stopPropagation();
     if (!canvas) return;
 
     const { x, y } = getRelativePosition(event);
@@ -245,6 +246,8 @@
       currentMouseY = y;
       canvas.setPointerCapture(event.pointerId);
       canvas.style.cursor = "grabbing";
+      // Disable body scroll during drag
+      document.body.style.overflow = "hidden";
       workingData = [...data];
       drawChart(workingData);
     }
@@ -253,6 +256,7 @@
   const onPointerMove = (event: PointerEvent) => {
     if (!isDragging) return;
     event.preventDefault();
+    event.stopPropagation();
 
     const { x, y } = getRelativePosition(event);
     currentMouseX = x;
@@ -269,6 +273,7 @@
   const endDrag = (event: PointerEvent) => {
     if (!isDragging) return;
     event.preventDefault();
+    event.stopPropagation();
     canvas.releasePointerCapture(event.pointerId);
 
     // Apply smoothing once at the end of drag for smooth final curve
@@ -279,6 +284,8 @@
     isDragging = false;
     dragIndex = -1;
     canvas.style.cursor = "grab";
+    // Re-enable body scroll after drag
+    document.body.style.overflow = "";
     appState.setChartData(workingData);
     drawChart(workingData);
   };
@@ -299,6 +306,8 @@
     canvas?.removeEventListener("pointermove", onPointerMove);
     canvas?.removeEventListener("pointerup", endDrag);
     canvas?.removeEventListener("pointerleave", endDrag);
+    // Ensure body scroll is re-enabled on cleanup
+    document.body.style.overflow = "";
   });
 </script>
 
