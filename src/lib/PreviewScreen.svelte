@@ -1,12 +1,10 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
-  import html2canvas from "html2canvas";
   import { onDestroy, onMount } from "svelte";
   import { get } from "svelte/store";
   import StockChart from "./StockChart.svelte";
   import {
     appState,
-    downloadSignal,
     formatCurrency,
     formatSignedCurrency,
     getTimeLabel,
@@ -16,31 +14,20 @@
   const periodButtons: ChartPeriod[] = ["LIVE", "1D", "1W", "1M", "3M", "YTD"];
 
   let viewState = get(appState);
-
-  let isDownloading = false;
-  let screenRef: HTMLDivElement | null = null;
   let unsubscribeAppState: (() => void) | undefined;
-  let unsubscribeDownload: (() => void) | undefined;
 
   onMount(() => {
     unsubscribeAppState = appState.subscribe((value) => {
       viewState = value;
     });
 
-    unsubscribeDownload = downloadSignal.subscribe(async (count) => {
-      if (count === 0) return;
-      await captureScreenshot();
-    });
-
     return () => {
       unsubscribeAppState?.();
-      unsubscribeDownload?.();
     };
   });
 
   onDestroy(() => {
     unsubscribeAppState?.();
-    unsubscribeDownload?.();
   });
 
   const handlePeriodClick = (period: ChartPeriod) => {

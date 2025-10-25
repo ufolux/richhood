@@ -151,14 +151,6 @@
     applyUpdates();
   }
 
-  function handleRegenerate() {
-    appState.regenerateChart();
-  }
-
-  function handleDownload() {
-    downloadSignal.update((value) => value + 1);
-  }
-
   function handleFocus(field: EditableField) {
     focusedField = field;
   }
@@ -285,22 +277,8 @@
     </select>
   </div>
 
-  <div class="control-group">
-    <button type="button" class="btn-chart" on:click={handleRegenerate}>
-      <Icon icon="mdi:refresh" width="20" height="20" />
-      Regenerate Chart
-    </button>
-    <div class="helper-text">
-      Click and drag on the chart to adjust its shape
-    </div>
-  </div>
-
   <button type="button" class="btn-primary" on:click={handleNonAutoInput}>
     <Icon icon="mdi:update" width="20" height="20" />
     Update Preview
-  </button>
-  <button type="button" class="btn-secondary" on:click={handleDownload}>
-    <Icon icon="mdi:download" width="20" height="20" />
-    Download Screenshot
   </button>
 </div>
