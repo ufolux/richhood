@@ -5,6 +5,9 @@ A professional screenshot generator that creates pixel-perfect replicas of Robin
 ## Try it
 [http://skyfly.xyz/richhood/](http://skyfly.xyz/richhood/)
 
+<img width="1306" height="707" alt="image" src="https://github.com/user-attachments/assets/edaf437a-e2b0-4ab8-9f68-71837f5a4877" />
+
+
 ## Features
 
 ### Customizable Fields
