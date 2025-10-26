@@ -2,6 +2,9 @@
 
 A professional screenshot generator that creates pixel-perfect replicas of Robinhood's investing dashboard UI with fully customizable portfolio values.
 
+## Try it
+[http://skyfly.xyz/richhood/](http://skyfly.xyz/richhood/)
+
 ## Features
 
 ### Customizable Fields
